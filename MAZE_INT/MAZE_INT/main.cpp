@@ -51,8 +51,8 @@ int main(void)
 
 	r.R_point.x = .15/2;
 	r.R_point.y = .15/2;
-	r.position.x = 1;
-	r.position.y = 1;
+	r.position.x = 0.5;
+	r.position.y = 0.5;
 	r.D_angle = 0;
 	r.D_velocity = 0;
 	r.R_velocity = 0;

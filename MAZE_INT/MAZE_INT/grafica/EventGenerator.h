@@ -9,7 +9,7 @@
 #include "Event.h"
 
 
-#define FRAME_RATE					60	//en FPS
+#define FRAME_RATE					100	//en FPS
 
 
 #define	DEFAULT_SIM_TIMEOUT			10		//por default cada cuantos timeouts hago un update
@@ -21,7 +21,8 @@
 #endif
 
 //(va a ir cambiando con fastforward y eso), esta en segundos!
-#define	MIN_SIMULATION_TIMER		0.0005	//lo mas rapido que puede ir la simulacion
+#define	MIN_SIMULATION_TIMER		0.0001	//lo mas rapido que puede ir la simulacion
+											// Cuanto mas chico es este valor, mas rapido va
 
 class EventGenerator
 {
@@ -33,6 +34,7 @@ public:
 private:
 	ALLEGRO_TIMER * frameRateTimer;
 	ALLEGRO_TIMER * simulationTimer;	
-	ALLEGRO_EVENT_QUEUE * evQ;
+	ALLEGRO_EVENT_QUEUE * userEvs;
+	ALLEGRO_EVENT_QUEUE * timers;
 	const std::vector<Button> * b;
 };

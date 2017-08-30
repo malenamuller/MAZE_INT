@@ -38,7 +38,7 @@ bool readMap(const char * path, map_t& map)
 #ifdef WIN32
 		f.ignore(2);	//ignoro el enter
 #else
-		f.ignore(1);
+		f.ignore(2);
 #endif
 		if (f.eof() == false) {
 			dvector_t v;
