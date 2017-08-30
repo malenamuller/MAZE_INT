@@ -3,7 +3,7 @@
 #include "IntelligenceCalculus.h"
 
 #define I_MIN_DISTANCE_BETWEEN_POINTS	3
-#define I_MIN_DISTANCE_AHEAD		20
+#define I_MIN_DISTANCE_AHEAD		25
 #define TOP_LEFT	50
 
 static int PointsOnXAxis[2]; //GUARDO ITERADORES!!
