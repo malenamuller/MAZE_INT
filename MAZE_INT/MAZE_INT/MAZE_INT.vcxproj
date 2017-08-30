@@ -68,12 +68,25 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -110,9 +123,65 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="FileHandler\FileHandler.h" />
+    <ClInclude Include="FileHandler\mapFile.h" />
+    <ClInclude Include="FileHandler\moreString.h" />
+    <ClInclude Include="grafica\Button.h" />
+    <ClInclude Include="grafica\Dispatcher.h" />
+    <ClInclude Include="grafica\Event.h" />
+    <ClInclude Include="grafica\EventGenerator.h" />
+    <ClInclude Include="grafica\Graphic.h" />
+    <ClInclude Include="Intelligence\Autos\Auto1.h" />
+    <ClInclude Include="Intelligence\Autos\IntelligenceCalculus.h" />
+    <ClInclude Include="Intelligence\Intelligence.h" />
+    <ClInclude Include="Intelligence\IntelligenceResources.h" />
+    <ClInclude Include="SenAct\senact.h" />
+    <ClInclude Include="TFD\tinyfiledialogs.h" />
+    <ClInclude Include="vector.h" />
+    <ClInclude Include="World\Calculus\Calculus.h" />
+    <ClInclude Include="World\Movement\Movement.h" />
+    <ClInclude Include="World\SensorCalculus\SensorCalculus.h" />
+    <ClInclude Include="World\World.h" />
+    <ClInclude Include="World\WorldStructures.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FileHandler\FileHandler.c" />
+    <ClCompile Include="FileHandler\mapFile.cpp" />
+    <ClCompile Include="FileHandler\moreString.c" />
+    <ClCompile Include="grafica\Button.cpp" />
+    <ClCompile Include="grafica\Dispatcher.cpp" />
+    <ClCompile Include="grafica\EventGenerator.cpp" />
+    <ClCompile Include="grafica\Graphic.cpp" />
+    <ClCompile Include="Intelligence\Autos\Auto1.cpp" />
+    <ClCompile Include="Intelligence\Autos\IntelligneceCalculus.cpp" />
+    <ClCompile Include="Intelligence\Intelligence.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SenAct\senact.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="SenAct\Todo.cpp" />
+    <ClCompile Include="TFD\tinyfiledialogs.c" />
+    <ClCompile Include="World\Calculus\Calculus.cpp" />
+    <ClCompile Include="World\Movement\Movement.cpp" />
+    <ClCompile Include="World\SensorCalculus\SensorCalculus.cpp" />
+    <ClCompile Include="World\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mapa.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\AllegroDeps.1.5.0.1\build\native\AllegroDeps.targets" Condition="Exists('..\packages\AllegroDeps.1.5.0.1\build\native\AllegroDeps.targets')" />
+    <Import Project="..\packages\Allegro.5.2.2.1\build\native\Allegro.targets" Condition="Exists('..\packages\Allegro.5.2.2.1\build\native\Allegro.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\AllegroDeps.1.5.0.1\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AllegroDeps.1.5.0.1\build\native\AllegroDeps.targets'))" />
+    <Error Condition="!Exists('..\packages\Allegro.5.2.2.1\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Allegro.5.2.2.1\build\native\Allegro.targets'))" />
+  </Target>
 </Project>
