@@ -9,7 +9,7 @@
 #include "Event.h"
 
 
-#define FRAME_RATE					100	//en FPS
+#define FRAME_RATE					200	//en FPS
 
 
 #define	DEFAULT_SIM_TIMEOUT			10		//por default cada cuantos timeouts hago un update
