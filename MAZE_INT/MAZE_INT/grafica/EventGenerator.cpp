@@ -6,22 +6,22 @@
 
 EventGenerator::EventGenerator(ALLEGRO_DISPLAY * display, const std::vector<Button> * b)
 {
-	evQ = NULL;
+	userEvs = timers = NULL;
 	simulationTimer = NULL;
 	frameRateTimer = NULL;
 
 	if (b != NULL) {
 		if (al_install_keyboard()) {
 			if (al_install_mouse()) {
-				if ((evQ = al_create_event_queue()) != NULL) {
+				if ((userEvs = al_create_event_queue()) != NULL && (timers = al_create_event_queue()) != NULL ) {
 					if ((frameRateTimer = al_create_timer(1.0 / (double)FRAME_RATE)) != NULL) {
 						if ((simulationTimer = al_create_timer(MIN_SIMULATION_TIMER)) != NULL) {
-							al_register_event_source(evQ, al_get_keyboard_event_source());
-							al_register_event_source(evQ, al_get_timer_event_source(frameRateTimer));
-							al_register_event_source(evQ, al_get_timer_event_source(simulationTimer));
-							al_register_event_source(evQ, al_get_mouse_event_source());
+							al_register_event_source(userEvs, al_get_keyboard_event_source());
+							al_register_event_source(timers, al_get_timer_event_source(frameRateTimer));
+							al_register_event_source(timers, al_get_timer_event_source(simulationTimer));
+							al_register_event_source(userEvs, al_get_mouse_event_source());
 							if (display != NULL)
-								al_register_event_source(evQ, al_get_display_event_source(display));
+								al_register_event_source(userEvs, al_get_display_event_source(display));
 
 							this->b = b;
 							al_start_timer(frameRateTimer);
@@ -31,14 +31,14 @@ EventGenerator::EventGenerator(ALLEGRO_DISPLAY * display, const std::vector<Butt
 							fprintf(stderr, "Unable to create simulation timer\n");
 							al_destroy_timer(frameRateTimer);
 							frameRateTimer = NULL;
-							al_destroy_event_queue(evQ);
-							evQ = NULL;
+							al_destroy_event_queue(userEvs); al_destroy_event_queue(timers);
+							userEvs = NULL;	timers = NULL;
 						}
 					}
 					else {
 						fprintf(stderr, "Unable to create framerate timer\n");
-						al_destroy_event_queue(evQ);
-						evQ = NULL;
+						al_destroy_event_queue(userEvs); al_destroy_event_queue(timers);
+						userEvs = NULL;	timers = NULL;
 					}
 				}
 				else {
@@ -62,8 +62,8 @@ EventGenerator::~EventGenerator()
 	simulationTimer = NULL;
 	al_destroy_timer(frameRateTimer);
 	frameRateTimer = NULL;
-	al_destroy_event_queue(evQ);
-	evQ = NULL;
+	al_destroy_event_queue(userEvs); al_destroy_event_queue(timers);
+	userEvs = NULL;	timers = NULL;
 	al_uninstall_keyboard();
 }
 
@@ -72,7 +72,7 @@ Event * EventGenerator::getNextEvent()
 	Event * e = nullptr;
 	ALLEGRO_EVENT ev;
 
-	if (al_get_next_event(evQ, &ev)) {
+	if (al_get_next_event(userEvs, &ev) || al_get_next_event(timers, &ev)) {
 		switch (ev.type) {
 		case ALLEGRO_EVENT_TIMER: {
 			if (ev.timer.source == frameRateTimer)
