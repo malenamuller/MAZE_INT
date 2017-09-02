@@ -35,11 +35,7 @@ bool readMap(const char * path, map_t& map)
 	queue<dvector_t> q;
 
 	while (valid == true && f.eof() == false) {
-#ifdef WIN32
 		f.ignore(2);	//ignoro el enter
-#else
-		f.ignore(1);
-#endif
 		if (f.eof() == false) {
 			dvector_t v;
 			valid = readVector(f, v);

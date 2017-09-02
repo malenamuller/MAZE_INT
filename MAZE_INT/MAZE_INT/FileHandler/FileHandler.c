@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "FileHandler.h"
+#pragma warning (disable : 4996)
 
 static double info[F_MAX_AMOUNT_OF_DATA];
 
@@ -35,7 +36,7 @@ uint16_t F_getBasicInfo (uint16_t order)
 {
 	if(order<11)
 	{
-		return F_getInfo(order);
+		return (uint16_t)F_getInfo(order);
 	}
 	else
 		return F_ERROR_WAYD;
