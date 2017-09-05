@@ -9,11 +9,11 @@
 #include "Event.h"
 
 
-#define FRAME_RATE					200	//en FPS
+#define FRAME_RATE					20	//en FPS
 
 
-#define	DEFAULT_SIM_TIMEOUT			10		//por default cada cuantos timeouts hago un update
-#define MIN_SIM_TIMEOUT				5	
+#define	DEFAULT_SIM_TIMEOUT			1		//por default cada cuantos timeouts hago un update
+#define MIN_SIM_TIMEOUT				1	
 #define MAX_SIM_TIMEOUT				15
 
 #if MAX_SIM_TIMEOUT < DEFAULT_SIM_TIMEOUT || MIN_SIM_TIMEOUT > DEFAULT_SIM_TIMEOUT
@@ -21,7 +21,7 @@
 #endif
 
 //(va a ir cambiando con fastforward y eso), esta en segundos!
-#define	MIN_SIMULATION_TIMER		0.001	//lo mas rapido que puede ir la simulacion
+#define	MIN_SIMULATION_TIMER		0.009	//lo mas rapido que puede ir la simulacion
 											// Cuanto mas chico es este valor, mas rapido va
 
 class EventGenerator

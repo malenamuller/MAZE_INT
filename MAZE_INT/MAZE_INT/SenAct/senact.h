@@ -22,22 +22,16 @@ void S_Init (void);
 // Mantenimiento
 uint16_t S_Update (void);
 
-double S_getSensorAngle(int sensorId);
 // Configuracion
 //uint16_t S_setSensorError (sen_id, * void);
 //uint16_t S_setActuatorError (sen_id, * void);
 
 
-
-//double	S_getSensorAngle(int sensorId);
-//double	S_getSensorXPos(int sensorId);
-//double	S_getSensorYPos(int sensorId);
-
-
-
-
-//los ids quedarian definidos segun el numero que tenian cuando se llamo a set config
+//Filehandler
+double	S_getSensorAngle(uint16_t sensorID);
+double	S_getSensorXPos(uint16_t sensorID);
+double	S_getSensorYPos(uint16_t sensorID);
 
 
 
-#endif
+#endif	//SENACT_H

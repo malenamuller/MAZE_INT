@@ -153,7 +153,7 @@
     <ClInclude Include="World\WorldStructures.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FileHandler\FileHandler.c" />
+    <ClCompile Include="FileHandler\FileHandler.cpp" />
     <ClCompile Include="FileHandler\mapFile.cpp" />
     <ClCompile Include="FileHandler\moreString.c" />
     <ClCompile Include="grafica\Button.cpp" />

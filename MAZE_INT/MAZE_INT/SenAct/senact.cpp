@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "../World/World.h"
+#include "../FileHandler/FileHandler.h"
 
 #define PI 3.14159265359
 #define MAX_VEL_R (PI/100)
@@ -48,6 +49,18 @@ static void updateSensor_ALL (void){
 	
 }
 
+static uint16_t checkreal (void) {
+	int ret = 1,i;
+	for (i = 1; i <= AMOUNT_OF_SENSORS; i++) {
+		if (lastread[i - 1].distance > 0.6)		 // 0.6m Es la max distancia por el coeficiente de reflactancia de la madera
+			ret = 0;
+		if (lastread[i - 1].angle > (40 * PI))   // Falta que .angle desde world funque   40 es el angulo max en el que tiene sentido sensar
+			ret = 0;
+	}
+	return ret;
+}
+
+
 static void SensorUpdate (void){
 	int i;
 	for(i=1;i<=AMOUNT_OF_SENSORS;i++){
@@ -57,7 +70,8 @@ static void SensorUpdate (void){
 	
 	if(updatecount++ >= UPDATESENRATE){
 		updatecount=0;
-		updateSensor_ALL();
+		if(checkreal())
+			updateSensor_ALL();
 	}
 }
 
@@ -120,10 +134,22 @@ void S_Init (void){
 	init_random();
 	percentage_old.right = 0;
 	percentage_old.left = 0;
-
+	F_Startup ("../FileHandler/Sensores.txt");
 }
 
 double S_getSensorAngle(int sensorID)
 {
 	return W_getSensorData(sensorID).distance;
+}
+
+double S_getSensorAngle (uint16_t sensorID){
+	return F_getSensorAngle (sensorID);
+}
+
+double	S_getSensorXPos(uint16_t sensorID){
+	return F_getSensorXPos (sensorID);
+}
+
+double	S_getSensorYPos(uint16_t sensorID){
+	return F_getSensorYPos (sensorID);
 }

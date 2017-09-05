@@ -89,9 +89,6 @@
     <ClCompile Include="grafica\EventGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileHandler\FileHandler.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="grafica\Graphic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -129,6 +126,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SenAct\senact.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHandler\FileHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
