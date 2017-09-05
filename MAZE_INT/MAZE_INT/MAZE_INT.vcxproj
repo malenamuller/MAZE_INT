@@ -164,9 +164,7 @@
     <ClCompile Include="Intelligence\Autos\IntelligneceCalculus.cpp" />
     <ClCompile Include="Intelligence\Intelligence.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SenAct\senact.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
+    <ClCompile Include="SenAct\senact.cpp" />
     <ClCompile Include="SenAct\Todo.cpp" />
     <ClCompile Include="TFD\tinyfiledialogs.c" />
     <ClCompile Include="World\Calculus\Calculus.cpp" />

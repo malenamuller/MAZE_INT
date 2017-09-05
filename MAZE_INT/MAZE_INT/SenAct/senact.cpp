@@ -1,3 +1,4 @@
+#include "senact.h"
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>
@@ -7,14 +8,25 @@
 #define PI 3.14159265359
 #define MAX_VEL_R (PI/100)
 #define MAX_VEL_D 1
-#define ESCALA	(.15/50)
+
+#define ESCALA (.15/50)
+
+#define UPDATESENRATE 1
 
 typedef struct{
 	double right;
 	double left;
 }actuator_percentage_t;
 
+typedef struct{
+	double distance;
+	double angle;	
+}sensores_t;
+
+
 static actuator_percentage_t percentage_old, percentage_new;
+static sensores_t lastread[AMOUNT_OF_SENSORS], shown[AMOUNT_OF_SENSORS];
+static uint16_t updatecount;
 
 static void init_random (void){		//inicializacion para generar numeros random
 	time_t t;
@@ -24,6 +36,42 @@ static void init_random (void){		//inicializacion para generar numeros random
 static uint16_t generate_random (uint16_t max){		//generador de random (>0) a partir del valor max
 	return (rand()%max);
 }
+
+///SENSORES
+
+static void updateSensor_ALL (void){
+	int i;
+	for(i=1;i<=AMOUNT_OF_SENSORS;i++){
+		shown[i - 1].distance = lastread[i - 1].distance;
+		shown[i - 1].angle = lastread[i - 1].angle;
+	}
+	
+}
+
+static void SensorUpdate (void){
+	int i;
+	for(i=1;i<=AMOUNT_OF_SENSORS;i++){
+		lastread[i - 1].distance = W_getSensorData(i).distance;
+		lastread[i - 1].angle = W_getSensorData(i).angle;
+	}
+	
+	if(updatecount++ >= UPDATESENRATE){
+		updatecount=0;
+		updateSensor_ALL();
+	}
+}
+
+
+double S_getStateValue (uint16_t sensorID)
+{
+	return shown[sensorID].distance;
+}
+
+
+
+
+
+///ACTUADORES
 
 static uint16_t convert_data (double data_r, double data_l, double * velocidad_d, double * velocidad_r){
 	if((data_l<=100) && (data_l>=-100) && (data_r<=100) && (data_r>=-100)) //probamos que no se encuentre dentro del rango
@@ -63,8 +111,9 @@ void S_setActuatorMov(uint16_t actuator_id, int16_t actuator_percentage){	//guar
 }
 
 uint16_t S_Update (void){
-		magic();
-		return 0;
+	magic();
+	SensorUpdate();
+	return 0;
 }
 
 void S_Init (void){
@@ -72,4 +121,9 @@ void S_Init (void){
 	percentage_old.right = 0;
 	percentage_old.left = 0;
 
+}
+
+double S_getSensorAngle(int sensorID)
+{
+	return W_getSensorData(sensorID).distance;
 }

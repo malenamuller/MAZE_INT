@@ -113,6 +113,6 @@ int main(void)
 		d.dispatch(ev);
 	} while (ev->name != EXIT);
 	delete ev;
-
+	delete r.robotPoints;
 	return EXIT_SUCCESS;
 }

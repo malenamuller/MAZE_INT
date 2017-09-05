@@ -16,7 +16,7 @@ enum dirs { STILL, UP, DOWN, LEFT, RIGHT };
 void initTodo(robot_t hello) { robot = hello; return; }
 
 // Sensores
-double S_getStateValue(int sensorID) { return W_getSensorData(sensorID).distance; }
+//double S_getStateValue(int sensorID) { return W_getSensorData(sensorID).distance; }
 double F_getSensorXPos(uint16_t sensornumber) { return robot.sensorArray[sensornumber].positionOnRobot.x; }
 double F_getSensorYPos(uint16_t sensornumber) { return robot.sensorArray[sensornumber].positionOnRobot.y; }
 double F_getSensorAngle(uint16_t sensornumber) { return robot.sensorArray[sensornumber].angle; }
