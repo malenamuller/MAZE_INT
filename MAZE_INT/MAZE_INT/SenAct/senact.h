@@ -3,6 +3,8 @@
 //codigos de errores -> error.h
 #define	SENACT_ERROR	1
 #define SENACT_OK 	0
+#define MOTOR_L 0
+#define MOTOR_R 1
 #include <stdint.h>
 
 //typedef sensor_id uint16_t

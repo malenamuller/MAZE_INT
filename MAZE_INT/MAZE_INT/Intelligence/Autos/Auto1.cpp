@@ -3,7 +3,7 @@
 #include "IntelligenceCalculus.h"
 
 #define I_MIN_DISTANCE_BETWEEN_POINTS	3
-#define I_MIN_DISTANCE_AHEAD		35
+#define I_MIN_DISTANCE_AHEAD	40	
 #define TOP_LEFT	50
 
 static int PointsOnXAxis[2]; //GUARDO ITERADORES!!
@@ -38,7 +38,7 @@ void startAuto1(const dpoint_t * allCoordinates)
 			{
 				if (allCoordinates[PointsOnXAxis[0]].x > -30)
 					turnRight();
-				else if(allCoordinates[PointsOnXAxis[0]].x < -40)
+				else if(allCoordinates[PointsOnXAxis[0]].x < -30)
 					turnLeft();
 			}
 		}

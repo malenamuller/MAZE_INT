@@ -12,7 +12,7 @@
 
 #define ESCALA (.15/50)
 
-#define UPDATESENRATE 1
+#define UPDATESENRATE 0
 
 typedef struct{
 	double right;
@@ -42,19 +42,19 @@ static uint16_t generate_random (uint16_t max){		//generador de random (>0) a pa
 
 static void updateSensor_ALL (void){
 	int i;
-	for(i=1;i<=AMOUNT_OF_SENSORS;i++){
-		shown[i - 1].distance = lastread[i - 1].distance;
-		shown[i - 1].angle = lastread[i - 1].angle;
+	for(i=0;i<AMOUNT_OF_SENSORS;i++){
+		shown[i].distance = lastread[i].distance;
+		shown[i].angle = lastread[i].angle;
 	}
 	
 }
 
 static uint16_t checkreal (void) {
 	int ret = 1,i;
-	for (i = 1; i <= AMOUNT_OF_SENSORS; i++) {
-		if (lastread[i - 1].distance > 0.6)		 // 0.6m Es la max distancia por el coeficiente de reflactancia de la madera
+	for (i = 0; i < AMOUNT_OF_SENSORS; i++) {
+		if (lastread[i].distance > 0.6)		 // 0.6m Es la max distancia por el coeficiente de reflactancia de la madera
 			ret = 0;
-		if (lastread[i - 1].angle > (40 * PI))   // Falta que .angle desde world funque   40 es el angulo max en el que tiene sentido sensar
+		if (lastread[i].angle > (40 * PI))   // Falta que .angle desde world funque   40 es el angulo max en el que tiene sentido sensar
 			ret = 0;
 	}
 	return ret;
@@ -63,14 +63,14 @@ static uint16_t checkreal (void) {
 
 static void SensorUpdate (void){
 	int i;
-	for(i=1;i<=AMOUNT_OF_SENSORS;i++){
-		lastread[i - 1].distance = W_getSensorData(i).distance;
-		lastread[i - 1].angle = W_getSensorData(i).angle;
+	for(i=0;i<AMOUNT_OF_SENSORS;i++){
+		lastread[i].distance = W_getSensorData(i).distance;
+		lastread[i].angle = W_getSensorData(i).angle;
 	}
 	
-	if(updatecount++ >= UPDATESENRATE){
+	if(++updatecount >= UPDATESENRATE){
 		updatecount=0;
-		if(checkreal())
+	//	if(checkreal())
 			updateSensor_ALL();
 	}
 }
@@ -134,13 +134,9 @@ void S_Init (void){
 	init_random();
 	percentage_old.right = 0;
 	percentage_old.left = 0;
-	F_Startup ("../FileHandler/Sensores.txt");
+	F_Startup ("FileHandler/Sensores.txt");
 }
 
-double S_getSensorAngle(int sensorID)
-{
-	return W_getSensorData(sensorID).distance;
-}
 
 double S_getSensorAngle (uint16_t sensorID){
 	return F_getSensorAngle (sensorID);

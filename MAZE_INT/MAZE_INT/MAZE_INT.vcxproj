@@ -89,6 +89,13 @@
     <Allegro_AddonFont>true</Allegro_AddonFont>
     <Allegro_AddonColor>true</Allegro_AddonColor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -102,6 +109,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -124,6 +132,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>ALLEGRO_STATICLINK;_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -143,8 +152,9 @@
     <ClInclude Include="Intelligence\Autos\IntelligenceCalculus.h" />
     <ClInclude Include="Intelligence\Intelligence.h" />
     <ClInclude Include="Intelligence\IntelligenceResources.h" />
+    <ClInclude Include="Intelligence\Manual.h" />
     <ClInclude Include="SenAct\senact.h" />
-    <ClInclude Include="TFD\tinyfiledialogs.h" />
+    <ClInclude Include="tobysarah.h" />
     <ClInclude Include="vector.h" />
     <ClInclude Include="World\Calculus\Calculus.h" />
     <ClInclude Include="World\Movement\Movement.h" />
@@ -163,10 +173,11 @@
     <ClCompile Include="Intelligence\Autos\Auto1.cpp" />
     <ClCompile Include="Intelligence\Autos\IntelligneceCalculus.cpp" />
     <ClCompile Include="Intelligence\Intelligence.cpp" />
+    <ClCompile Include="Intelligence\Manual.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SenAct\senact.cpp" />
     <ClCompile Include="SenAct\Todo.cpp" />
-    <ClCompile Include="TFD\tinyfiledialogs.c" />
+    <ClCompile Include="tobysarah.cpp" />
     <ClCompile Include="World\Calculus\Calculus.cpp" />
     <ClCompile Include="World\Movement\Movement.cpp" />
     <ClCompile Include="World\SensorCalculus\SensorCalculus.cpp" />

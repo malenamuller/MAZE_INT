@@ -51,9 +51,6 @@
     <ClInclude Include="Intelligence\Autos\IntelligenceCalculus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TFD\tinyfiledialogs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="World\World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -73,6 +70,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SenAct\senact.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tobysarah.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Intelligence\Manual.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -113,9 +116,6 @@
     <ClCompile Include="World\SensorCalculus\SensorCalculus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TFD\tinyfiledialogs.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SenAct\Todo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -128,7 +128,13 @@
     <ClCompile Include="SenAct\senact.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tobysarah.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="FileHandler\FileHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Intelligence\Manual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
