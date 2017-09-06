@@ -1,10 +1,7 @@
 #include "Intelligence.h"
-#include "IntelligenceResources.h"
 #include "../vector.h"
 #include "./Autos/Auto1.h"
-#include "./Autos/Auto2.h"
 #include "../senact/senact.h"
-//#include "../FileHandler/FileHandler.h"
 #include <math.h>
 #include "Manual.h"
 #define ESCALA	(50/.15)

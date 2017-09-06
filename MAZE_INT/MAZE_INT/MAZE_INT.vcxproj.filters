@@ -42,9 +42,6 @@
     <ClInclude Include="Intelligence\Intelligence.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Intelligence\IntelligenceResources.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Intelligence\Autos\Auto1.h">
       <Filter>Header Files</Filter>
     </ClInclude>

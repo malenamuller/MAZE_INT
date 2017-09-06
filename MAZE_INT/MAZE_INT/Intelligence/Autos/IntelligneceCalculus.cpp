@@ -1,8 +1,5 @@
 #include "./IntelligenceCalculus.h"
 #include "../../senact/senact.h"
-#define MOTOR_L		0
-#define MOTOR_R		1
-
 
 void actOverInclination(double inc)
 {

@@ -151,7 +151,6 @@
     <ClInclude Include="Intelligence\Autos\Auto1.h" />
     <ClInclude Include="Intelligence\Autos\IntelligenceCalculus.h" />
     <ClInclude Include="Intelligence\Intelligence.h" />
-    <ClInclude Include="Intelligence\IntelligenceResources.h" />
     <ClInclude Include="Intelligence\Manual.h" />
     <ClInclude Include="SenAct\senact.h" />
     <ClInclude Include="tobysarah.h" />
