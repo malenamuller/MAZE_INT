@@ -165,7 +165,7 @@ void Graphic::drawRobot(dpoint_t pos, double angle)
 	dpoint_t newPos = scalePoint(pos);
 	lastRobotPos.x = newPos.x;	lastRobotPos.y = newPos.y;
 	lastRobotAngle = angle;
-	dpoint_t bm = { al_get_bitmap_width(robot)/2, al_get_bitmap_height(robot)/2 };
+	dpoint_t bm = { (double)al_get_bitmap_width(robot)/2, (double)al_get_bitmap_height(robot)/2 };
 
 	if (isInDisplay(newPos)) {
 		al_draw_scaled_rotated_bitmap(robot, bm.x, bm.y, lastRobotPos.x, lastRobotPos.y, 
@@ -222,7 +222,7 @@ void Graphic::drawSimSpeed(float speed)
 		char text [sizeof(SPEED_STRING)+sizeof(SPEED_DIGITS)-1]= SPEED_STRING;
 		snprintf(text+sizeof(SPEED_STRING)-1, sizeof(SPEED_DIGITS), "%f", speed);
 
-		fpoint_t p0 = { mapArea.start.x, 0 };
+		fpoint_t p0 = { (float)mapArea.start.x, (float)0 };
 		al_draw_filled_rectangle(p0.x, p0.y, p0.x + al_get_text_width(font, text), 
 			p0.y + al_get_font_line_height(font), al_map_rgb(255,255,255) );
 		al_draw_text(font, al_map_rgb(0, 0, 0), p0.x, p0.y, 0, text);
@@ -244,8 +244,8 @@ void Graphic::drawMode(char * mode)
 	}
 
 	if (font != nullptr && mode != nullptr) {
-		fpoint_t p0 { mapArea.start.x + al_get_text_width(font, "Simulation speed: x1.0     ") };
-		unsigned int len = strlen(mode) + 5;
+		fpoint_t p0 { (float)(mapArea.start.x + al_get_text_width(font, "Simulation speed: x1.0     ")) };
+		unsigned int len = (unsigned int)(strlen(mode) + 5);
 		char text[100] = "Mode: ";
 		strncat(text, mode, sizeof(text)/sizeof(char) - sizeof("Mode: "));
 
