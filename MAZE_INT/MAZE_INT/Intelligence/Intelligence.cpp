@@ -3,7 +3,7 @@
 #include "./Autos/Auto1.h"
 #include "../senact/senact.h"
 #include <math.h>
-#include "Manual.h"
+#include "./Autos/Manual.h"
 #define ESCALA	(50/.15)
 
 extern void startAuto1(const dpoint_t * allCoordinates);

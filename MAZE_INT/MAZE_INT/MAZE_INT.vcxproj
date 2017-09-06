@@ -149,9 +149,9 @@
     <ClInclude Include="grafica\EventGenerator.h" />
     <ClInclude Include="grafica\Graphic.h" />
     <ClInclude Include="Intelligence\Autos\Auto1.h" />
-    <ClInclude Include="Intelligence\Autos\IntelligenceCalculus.h" />
+    <ClInclude Include="Intelligence\Autos\Manual.h" />
     <ClInclude Include="Intelligence\Intelligence.h" />
-    <ClInclude Include="Intelligence\Manual.h" />
+    <ClInclude Include="Intelligence\IntelligenceCalculus.h" />
     <ClInclude Include="SenAct\senact.h" />
     <ClInclude Include="tobysarah.h" />
     <ClInclude Include="vector.h" />
@@ -170,9 +170,9 @@
     <ClCompile Include="grafica\EventGenerator.cpp" />
     <ClCompile Include="grafica\Graphic.cpp" />
     <ClCompile Include="Intelligence\Autos\Auto1.cpp" />
-    <ClCompile Include="Intelligence\Autos\IntelligneceCalculus.cpp" />
+    <ClCompile Include="Intelligence\Autos\Manual.cpp" />
     <ClCompile Include="Intelligence\Intelligence.cpp" />
-    <ClCompile Include="Intelligence\Manual.cpp" />
+    <ClCompile Include="Intelligence\IntelligneceCalculus.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SenAct\senact.cpp" />
     <ClCompile Include="SenAct\Todo.cpp" />

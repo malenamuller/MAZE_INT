@@ -1,5 +1,5 @@
-#include "Intelligence.h"
-#include "../senact/senact.h"
+#include "../Intelligence.h"
+#include "../../SenAct/senact.h"
 #include <cmath>
 #include "Manual.h"
 #include <algorithm>

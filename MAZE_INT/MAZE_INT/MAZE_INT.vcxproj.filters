@@ -45,9 +45,6 @@
     <ClInclude Include="Intelligence\Autos\Auto1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Intelligence\Autos\IntelligenceCalculus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="World\World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -72,7 +69,10 @@
     <ClInclude Include="tobysarah.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Intelligence\Manual.h">
+    <ClInclude Include="Intelligence\IntelligenceCalculus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Intelligence\Autos\Manual.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -93,9 +93,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Intelligence\Intelligence.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Intelligence\Autos\IntelligneceCalculus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -131,7 +128,10 @@
     <ClCompile Include="FileHandler\FileHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Intelligence\Manual.cpp">
+    <ClCompile Include="Intelligence\IntelligneceCalculus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Intelligence\Autos\Manual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

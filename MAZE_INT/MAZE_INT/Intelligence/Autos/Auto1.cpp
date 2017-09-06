@@ -1,6 +1,6 @@
 #include "Auto1.h"
 //#include <stdbool.h>
-#include "IntelligenceCalculus.h"
+#include "../IntelligenceCalculus.h"
 #include "../../SenAct/senact.h"
 
 #define I_MIN_DISTANCE_BETWEEN_POINTS	3
